@@ -14,6 +14,7 @@
 		E70854F21FEEC0E80084A307 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70854F01FEEC0E80084A307 /* LaunchScreen.storyboard */; };
 		E70854FD1FEEC0E80084A307 /* TipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70854FC1FEEC0E80084A307 /* TipsterTests.swift */; };
 		E70855081FEEC0E80084A307 /* TipsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70855071FEEC0E80084A307 /* TipsterUITests.swift */; };
+		E70855161FEF22720084A307 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70855151FEF22720084A307 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E70855031FEEC0E80084A307 /* TipsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70855071FEEC0E80084A307 /* TipsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsterUITests.swift; sourceTree = "<group>"; };
 		E70855091FEEC0E80084A307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E70855151FEF22720084A307 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				E70854E71FEEC0E80084A307 /* AppDelegate.swift */,
+				E70855151FEF22720084A307 /* SettingsViewController.swift */,
 				E70854E91FEEC0E80084A307 /* ViewController.swift */,
 				E70854EB1FEEC0E80084A307 /* Main.storyboard */,
 				E70854EE1FEEC0E80084A307 /* Assets.xcassets */,
@@ -261,6 +264,7 @@
 			files = (
 				E70854EA1FEEC0E80084A307 /* ViewController.swift in Sources */,
 				E70854E81FEEC0E80084A307 /* AppDelegate.swift in Sources */,
+				E70855161FEF22720084A307 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
