@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] List anything else that you can get done to improve the app functionality!
-*Added switch to turn animations on/off (default: on)
+* Added switch to turn animations on/off (default: on)
 
 ## Video Walkthrough 
 
