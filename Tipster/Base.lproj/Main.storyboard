@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tipsy-->
+        <!--Tipster-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tipster" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,7 +88,7 @@
                             <outletCollection property="gestureRecognizers" destination="kBU-KU-DyO" appends="YES" id="x7i-ba-aCD"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tipsy" id="mYA-wz-9FT">
+                    <navigationItem key="navigationItem" title="Tipster" id="mYA-wz-9FT">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="IQt-pn-WCS">
                             <connections>
                                 <segue destination="wGf-WA-dT9" kind="show" id="ZFC-sB-17A"/>
@@ -97,9 +97,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billAmount" destination="UIP-qk-SaZ" id="i9o-b6-lTh"/>
+                        <outlet property="billLabel" destination="Fa1-Oh-Edz" id="pbU-Dk-oRN"/>
                         <outlet property="tipControl" destination="djS-O3-8Kx" id="PDd-aJ-xaL"/>
                         <outlet property="tipLabel" destination="cM4-t9-EiI" id="kYo-Hm-FNB"/>
+                        <outlet property="tipName" destination="lcz-5j-z3Q" id="Rt3-WB-Op1"/>
                         <outlet property="totalLabel" destination="W2U-eZ-XeM" id="SEz-e3-gg4"/>
+                        <outlet property="totalName" destination="Ifr-Hd-8Ec" id="iq4-Ze-GKl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -126,14 +129,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lUH-Gr-NdN">
-                                <rect key="frame" x="188" y="125" width="137" height="30"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geG-uV-CH1">
+                                <rect key="frame" x="233" y="207" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="toggleAnimations:" destination="wGf-WA-dT9" eventType="valueChanged" id="bUl-Df-ryh"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Animations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAz-UB-MUO">
+                                <rect key="frame" x="52" y="217" width="86" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cE3-2n-bKO">
+                                <rect key="frame" x="208" y="125" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <action selector="saveDefaultTip:" destination="wGf-WA-dT9" eventType="editingChanged" id="1Cl-uI-Clv"/>
+                                    <action selector="saveDefaultTip:" destination="wGf-WA-dT9" eventType="editingChanged" id="SFv-PA-Iw6"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -142,7 +159,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="yfl-H1-EgJ"/>
                     <connections>
-                        <outlet property="defaultTip" destination="lUH-Gr-NdN" id="azy-cj-ouv"/>
+                        <outlet property="animationSwitch" destination="geG-uV-CH1" id="7PY-oJ-qWa"/>
+                        <outlet property="animationsLabel" destination="NAz-UB-MUO" id="Lxs-q7-Keg"/>
+                        <outlet property="defaultTipLabel" destination="vtU-Dm-UpO" id="yna-RZ-mTz"/>
+                        <outlet property="defaultTipfield" destination="cE3-2n-bKO" id="fVl-AF-Stb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecH-PE-LUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
