@@ -11,9 +11,11 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var defaultTipLabel: UILabel!
+    @IBOutlet weak var defaultTaxLabel: UILabel!
     @IBOutlet weak var animationsLabel: UILabel!
     @IBOutlet weak var darkThemeLabel: UILabel!
     @IBOutlet weak var defaultTipfield: UITextField!
+    @IBOutlet weak var defaultTaxField: UITextField!
     @IBOutlet weak var animationSwitch: UISwitch!
     @IBOutlet weak var darkThemeSwitch: UISwitch!
     
@@ -31,6 +33,7 @@ class SettingsViewController: UIViewController {
         // Retrieve and set defaults
         let defaults = UserDefaults.standard
         defaultTipfield.text = defaults.string(forKey: "defaultTip")
+        defaultTaxField.text = defaults.string(forKey: "defaultTax")
         animateOn = defaults.bool(forKey: "animateOn")
         animationSwitch.isOn = animateOn
 
@@ -40,10 +43,12 @@ class SettingsViewController: UIViewController {
         // Start labels out of view
         if (animateOn) {
             defaultTipLabel.center.y -= view.bounds.width
+            defaultTaxLabel.center.x -= view.bounds.width
             animationsLabel.center.x -= view.bounds.width
             darkThemeLabel.center.y += view.bounds.width
         
             defaultTipfield.center.y -= view.bounds.width
+            defaultTaxField.center.x += view.bounds.width
             animationSwitch.center.x += view.bounds.width
             darkThemeSwitch.center.y += view.bounds.width
         }
@@ -59,6 +64,8 @@ class SettingsViewController: UIViewController {
                 self.defaultTipfield.center.y += self.view.bounds.width
             })
             UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
+                self.defaultTaxLabel.center.x += self.view.bounds.width
+                self.defaultTaxField.center.x -= self.view.bounds.width
                 self.animationsLabel.center.x += self.view.bounds.width
                 self.animationSwitch.center.x -= self.view.bounds.width
             })
@@ -73,6 +80,14 @@ class SettingsViewController: UIViewController {
     @IBAction func toggleAnimations(_ sender: Any) {
         let defaults = UserDefaults.standard
         defaults.set(animationSwitch.isOn, forKey: "animateOn")
+        defaults.synchronize()
+    }
+    
+    // Update tax percentage default setting
+    @IBAction func saveDefaultTax(_ sender: Any) {
+        let tax = Double(defaultTaxField.text!)
+        let defaults = UserDefaults.standard
+        defaults.set(tax, forKey: "defaultTax")
         defaults.synchronize()
     }
     

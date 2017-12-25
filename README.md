@@ -4,7 +4,7 @@ Tipster is a tip calculator application for iOS.
 
 Submitted by: Somi Singh
 
-Time spent: 12 hours spent in total
+Time spent: 13 hours spent in total
 
 ## User Stories
 
@@ -23,12 +23,13 @@ The following **additional** features are implemented:
 
 - [x] List anything else that you can get done to improve the app functionality!
 * Added switch to turn animations on/off (default: on)
+* Added sales tax field with default set to 8.25
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-![Tipsy Video Walkthrough](https://imgur.com/HSsp8BK.gif)
+![Tipsy Video Walkthrough](https://imgur.com/h2BLKFA.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
