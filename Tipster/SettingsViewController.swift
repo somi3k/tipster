@@ -32,6 +32,9 @@ class SettingsViewController: UIViewController {
         animateOn = defaults.bool(forKey: "animateOn")
         animationSwitch.isOn = animateOn
 
+        // Force cursor to defaultTipField and begin editing
+        defaultTipfield.becomeFirstResponder()
+        
         // Start labels out of view
         if (animateOn) {
             defaultTipLabel.center.x -= view.bounds.width

@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     var tip: Double = 0
     var defaultTip: Double = 0
     var animateOn: Bool = true
+    let currencySymbol = Locale.current.currencySymbol
+    
     
     // Set animations ON, defaultTip 15 if no defaults set
     override func viewDidLoad() {
@@ -44,6 +46,7 @@ class ViewController: UIViewController {
         if (defaultTipObject == nil) {
             defaults.set(15, forKey: "defaultTip")
         }
+        defaults.synchronize()
     }
     
     // Load default tip, stored bill amount, and re-calculate bill on return
@@ -52,19 +55,26 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaultTip = Double(defaults.integer(forKey: "defaultTip")) / 100.0
         animateOn = defaults.bool(forKey: "animateOn")
+        
+        // Force cursor to billAmount and begin editing
+        billAmount.becomeFirstResponder()
+        
         if (defaults.double(forKey: "storedBill") != 0.0) {
-            billAmount.text = String(defaults.double(forKey: "storedBill"))
+            billAmount.text = String(format: "%.02f", defaults.double(forKey: "storedBill"))
         }
+        else {
+            billAmount.text = currencySymbol!
+        }
+        
         // Start labels out of view
         if (animateOn) {
-            billLabel.center.x -= view.bounds.width
             tipName.center.x -= view.bounds.width
             totalName.center.x -= view.bounds.width
-        
-            billAmount.center.x += view.bounds.width
+            
             tipLabel.center.x += view.bounds.width
             totalLabel.center.x += view.bounds.width
-        
+            
+            billAmount.center.y -= view.bounds.width
             tipControl.center.y += view.bounds.height
             self.viewBar.alpha = 0
         }
@@ -77,8 +87,7 @@ class ViewController: UIViewController {
         // Animate labels back into view
         if (animateOn) {
             UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
-                self.billLabel.center.x += self.view.bounds.width
-                self.billAmount.center.x -= self.view.bounds.width
+                self.billAmount.center.y += self.view.bounds.width
             })
         
             UIView.animate(withDuration: 0.2, delay: 0.1, options: [.curveEaseInOut], animations: {
@@ -113,6 +122,8 @@ class ViewController: UIViewController {
 
     // Hide keyboard when tapping outside of input box
     @IBAction func onTap(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        billAmount.text = String(format: "%.02f", defaults.double(forKey: "storedBill"))
         view.endEditing(true)
     }
     
@@ -124,8 +135,9 @@ class ViewController: UIViewController {
         tip = bill * (tipControl.selectedSegmentIndex == -1 ? defaultTip : tipPercentage[tipControl.selectedSegmentIndex])
         let total = bill + tip
         defaults.set(bill, forKey: "storedBill")
-        tipLabel.text = String(format: "$%.02f", tip)
-        totalLabel.text = String(format: "$%.02f", total)
+        tipLabel.text = currencySymbol! + String(format: "%.02f", tip)
+        totalLabel.text = currencySymbol! + String(format: "%.02f", total)
+        defaults.synchronize()
     }
 }
 
