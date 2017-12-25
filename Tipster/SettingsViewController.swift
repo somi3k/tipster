@@ -47,12 +47,12 @@ class SettingsViewController: UIViewController {
         
         // Animate labels back into view
         if (animateOn) {
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
                 self.defaultTipLabel.center.x += self.view.bounds.width
                 self.defaultTipfield.center.x -= self.view.bounds.width
             })
             
-            UIView.animate(withDuration: 0.2, delay: 0.1, options: [], animations: {
+            UIView.animate(withDuration: 0.2, delay: 0.1, options: [.curveEaseInOut], animations: {
                 self.animationsLabel.center.x += self.view.bounds.width
                 self.animationSwitch.center.x -= self.view.bounds.width
             })

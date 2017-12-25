@@ -103,6 +103,7 @@
                         <outlet property="tipName" destination="lcz-5j-z3Q" id="Rt3-WB-Op1"/>
                         <outlet property="totalLabel" destination="W2U-eZ-XeM" id="SEz-e3-gg4"/>
                         <outlet property="totalName" destination="Ifr-Hd-8Ec" id="iq4-Ze-GKl"/>
+                        <outlet property="viewBar" destination="bC3-7o-O7G" id="yxK-Tl-QLh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
