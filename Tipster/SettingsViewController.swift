@@ -2,31 +2,33 @@
 //  SettingsViewController.swift
 //  Tipster
 //
-//  Created by somi on 12/23/17.
-//  Copyright © 2017 somi. All rights reserved.
+//  Created by Somi Singh on 12/23/17.
+//  Copyright © 2017 Somi Singh. All rights reserved.
 //
 
 import UIKit
 
 class SettingsViewController: UIViewController {
 
-    var animateOn: Bool = true
-
     @IBOutlet weak var defaultTipLabel: UILabel!
     @IBOutlet weak var animationsLabel: UILabel!
-    
+    @IBOutlet weak var darkThemeLabel: UILabel!
     @IBOutlet weak var defaultTipfield: UITextField!
-    
     @IBOutlet weak var animationSwitch: UISwitch!
+    @IBOutlet weak var darkThemeSwitch: UISwitch!
+    
+    // Global variable for animation
+    var animateOn: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
     }
     
-    // Retrieve and set defaults
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Retrieve and set defaults
         let defaults = UserDefaults.standard
         defaultTipfield.text = defaults.string(forKey: "defaultTip")
         animateOn = defaults.bool(forKey: "animateOn")
@@ -37,11 +39,13 @@ class SettingsViewController: UIViewController {
         
         // Start labels out of view
         if (animateOn) {
-            defaultTipLabel.center.x -= view.bounds.width
+            defaultTipLabel.center.y -= view.bounds.width
             animationsLabel.center.x -= view.bounds.width
+            darkThemeLabel.center.y += view.bounds.width
         
-            defaultTipfield.center.x += view.bounds.width
+            defaultTipfield.center.y -= view.bounds.width
             animationSwitch.center.x += view.bounds.width
+            darkThemeSwitch.center.y += view.bounds.width
         }
     }
     
@@ -51,44 +55,32 @@ class SettingsViewController: UIViewController {
         // Animate labels back into view
         if (animateOn) {
             UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
-                self.defaultTipLabel.center.x += self.view.bounds.width
-                self.defaultTipfield.center.x -= self.view.bounds.width
+                self.defaultTipLabel.center.y += self.view.bounds.width
+                self.defaultTipfield.center.y += self.view.bounds.width
             })
-            
-            UIView.animate(withDuration: 0.2, delay: 0.1, options: [.curveEaseInOut], animations: {
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
                 self.animationsLabel.center.x += self.view.bounds.width
                 self.animationSwitch.center.x -= self.view.bounds.width
+            })
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
+                self.darkThemeLabel.center.y -= self.view.bounds.width
+                self.darkThemeSwitch.center.y -= self.view.bounds.width
             })
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    // Update animation default setting
     @IBAction func toggleAnimations(_ sender: Any) {
         let defaults = UserDefaults.standard
         defaults.set(animationSwitch.isOn, forKey: "animateOn")
         defaults.synchronize()
     }
     
-    // Save entered tip value to UserDefaults
+    // Update tip percentage default setting
     @IBAction func saveDefaultTip(_ sender: Any) {
         let tip = Int(defaultTipfield.text!)
         let defaults = UserDefaults.standard
         defaults.set(tip, forKey: "defaultTip")
         defaults.synchronize()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

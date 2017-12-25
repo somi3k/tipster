@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Tipster
 //
-//  Created by somi on 12/23/17.
-//  Copyright © 2017 somi. All rights reserved.
+//  Created by Somi Singh on 12/23/17.
+//  Copyright © 2017 Somi Singh. All rights reserved.
 //
 
 import UIKit
@@ -12,26 +12,23 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var totalName: UILabel!
     @IBOutlet weak var tipName: UILabel!
-    @IBOutlet weak var billLabel: UILabel!
     @IBOutlet weak var billAmount: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var viewBar: UIView!
     
-    // Global variable for tip, defaultTip, animateOn
+    // Global variables for tip, defaultTip, animateOn
     var tip: Double = 0
     var defaultTip: Double = 0
     var animateOn: Bool = true
-    let currencySymbol = Locale.current.currencySymbol
     
-    
-    // Set animations ON, defaultTip 15 if no defaults set
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let defaults = UserDefaults.standard
         
-        // Reset stored bill to 0 if greater than 10 minutes elapsed
+        // Reset storedBill to 0 if greater than 10 minutes elapsed
+        let defaults = UserDefaults.standard
         let storedDate = defaults.double(forKey: "storedDate")
         let currentDate = Date().timeIntervalSince1970
         if (storedDate - currentDate >= 600) {
@@ -39,6 +36,7 @@ class ViewController: UIViewController {
         }
         defaults.set(Date().timeIntervalSince1970, forKey: "storedDate")
         
+        // Set default values of animation ON and tip=15 if nil
         if (!defaults.bool(forKey: "animateOn")) {
             defaults.set(true, forKey: "animateOn")
         }
@@ -49,22 +47,19 @@ class ViewController: UIViewController {
         defaults.synchronize()
     }
     
-    // Load default tip, stored bill amount, and re-calculate bill on return
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Restore defaults for tip, animation, and bill
         let defaults = UserDefaults.standard
         defaultTip = Double(defaults.integer(forKey: "defaultTip")) / 100.0
         animateOn = defaults.bool(forKey: "animateOn")
-        
-        // Force cursor to billAmount and begin editing
-        billAmount.becomeFirstResponder()
-        
         if (defaults.double(forKey: "storedBill") != 0.0) {
             billAmount.text = String(format: "%.02f", defaults.double(forKey: "storedBill"))
         }
-        else {
-            billAmount.text = currencySymbol!
-        }
+        
+        // Force cursor to billAmount and begin editing
+        billAmount.becomeFirstResponder()
         
         // Start labels out of view
         if (animateOn) {
@@ -84,47 +79,37 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // Animate labels back into view
+        // Animate labels and field back into view
         if (animateOn) {
-            UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
+            UIView.animate(withDuration: 0.2, delay: 0.05, options: [.curveEaseInOut], animations: {
                 self.billAmount.center.y += self.view.bounds.width
             })
-        
-            UIView.animate(withDuration: 0.2, delay: 0.1, options: [.curveEaseInOut], animations: {
+            UIView.animate(withDuration: 0.2, delay: 0.05, options: [.curveEaseInOut], animations: {
                 self.tipName.center.x += self.view.bounds.width
                 self.tipLabel.center.x -= self.view.bounds.width
-                self.viewBar.alpha = 1
-            })
-        
-            UIView.animate(withDuration: 0.2, delay: 0.2, options: [.curveEaseInOut], animations: {
                 self.totalName.center.x += self.view.bounds.width
                 self.totalLabel.center.x -= self.view.bounds.width
                 self.tipControl.center.y -= self.view.bounds.height
             })
+            UIView.animate(withDuration: 0.2, delay: 0.15, options: [.curveEaseInOut], animations: {
+                self.viewBar.alpha = 1
+            })
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //print("view will disappear")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //print("view did disappear")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
-    // Hide keyboard when tapping outside of input box
+    // Hide keyboard, restore bill amount on background tap
     @IBAction func onTap(_ sender: Any) {
         let defaults = UserDefaults.standard
         billAmount.text = String(format: "%.02f", defaults.double(forKey: "storedBill"))
         view.endEditing(true)
+    }
+    
+    // Format text input using current localization for currency
+    func formatOutput(_ amount: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        let formattedOutput = formatter.string(from: amount as NSNumber)
+        return formattedOutput!
     }
     
     // Load tip percentage from UserDefaults or from user input, calculate tip amount and total bill
@@ -135,9 +120,8 @@ class ViewController: UIViewController {
         tip = bill * (tipControl.selectedSegmentIndex == -1 ? defaultTip : tipPercentage[tipControl.selectedSegmentIndex])
         let total = bill + tip
         defaults.set(bill, forKey: "storedBill")
-        tipLabel.text = currencySymbol! + String(format: "%.02f", tip)
-        totalLabel.text = currencySymbol! + String(format: "%.02f", total)
+        tipLabel.text = formatOutput(tip)
+        totalLabel.text = formatOutput(total)
         defaults.synchronize()
     }
 }
-
