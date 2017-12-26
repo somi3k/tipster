@@ -22,6 +22,9 @@ class SettingsViewController: UIViewController {
     // Global variable for animation
     var animateOn: Bool = true
     
+    // Global declaration for UserDefaults
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
@@ -31,14 +34,11 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // Retrieve and set defaults
-        let defaults = UserDefaults.standard
-        defaultTipfield.text = defaults.string(forKey: "defaultTip")
+        ////let defaults = UserDefaults.standard
+        defaultTipfield.text = defaults.string(forKey: "defaultTipPercent")
         defaultTaxField.text = defaults.string(forKey: "defaultTax")
         animateOn = defaults.bool(forKey: "animateOn")
         animationSwitch.isOn = animateOn
-
-        // Force cursor to defaultTipField and begin editing
-        defaultTipfield.becomeFirstResponder()
         
         // Start labels out of view
         if (animateOn) {
@@ -78,24 +78,38 @@ class SettingsViewController: UIViewController {
     
     // Update animation default setting
     @IBAction func toggleAnimations(_ sender: Any) {
-        let defaults = UserDefaults.standard
         defaults.set(animationSwitch.isOn, forKey: "animateOn")
         defaults.synchronize()
     }
     
+    // Reset view when tapping outside editing fields
+    @IBAction func onTap(_ sender: Any) {
+        defaultTipfield.endEditing(true)
+        defaultTaxField.endEditing(true)
+        defaultTaxField.text = String(defaults.double(forKey: "defaultTax"))
+        defaultTipfield.text = String(defaults.integer(forKey: "defaultTipPercent"))
+    }
+    
     // Update tax percentage default setting
     @IBAction func saveDefaultTax(_ sender: Any) {
-        let tax = Double(defaultTaxField.text!)
-        let defaults = UserDefaults.standard
-        defaults.set(tax, forKey: "defaultTax")
+        let taxRate = Double(defaultTaxField.text!) ?? defaults.double(forKey: "defaultTax")
+        defaults.set(taxRate, forKey: "defaultTax")
+        let bill = defaults.double(forKey: "storedBill")
+        let tax = bill * (taxRate / 100.0)
+        let tipAmount = (bill + tax) * ((Double(defaults.integer(forKey: "defaultTipPercent"))) / 100.0)
+        defaults.set(tipAmount, forKey: "storedTipAmount")
         defaults.synchronize()
     }
     
     // Update tip percentage default setting
     @IBAction func saveDefaultTip(_ sender: Any) {
-        let tip = Int(defaultTipfield.text!)
-        let defaults = UserDefaults.standard
-        defaults.set(tip, forKey: "defaultTip")
+        let tipPercent = Int(defaultTipfield.text!) ?? defaults.integer(forKey: "defaultTipPercent")
+        defaults.set(tipPercent, forKey: "defaultTipPercent")
+        let bill = defaults.double(forKey: "storedBill")
+        let taxRate = defaults.double(forKey: "defaultTax") / 100
+        let tax = bill * taxRate
+        let tipAmount = (bill + tax) * ((Double(defaults.integer(forKey: "defaultTipPercent"))) / 100.0)
+        defaults.set(tipAmount, forKey: "storedTipAmount")
         defaults.synchronize()
     }
 }
