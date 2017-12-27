@@ -25,6 +25,8 @@ The following **additional** features are implemented:
 * Added switch to turn animations on/off (default: on)
 * Added configurable sales tax field with (default: 8.25)
 * Added field for entering a nominal tip value, with the relative tip percentage displayed to the left
+* Added shared bill amount displaying total split evenly between 1 - 5 people
+* Added ability to save the previous 10 totals to a persistent history
 
 ## Video Walkthrough 
 
@@ -33,6 +35,7 @@ Here's a walkthrough of implemented user stories:
 ![Tipsy Video Walkthrough](https://i.imgur.com/scb787c.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
+People icons made by [Freepik](www.freepik.com) from [www.flaticon.com](www.flaticon.com)
 
 ## Notes
 
