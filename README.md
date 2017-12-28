@@ -33,7 +33,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Tipsy Video Walkthrough](https://i.imgur.com/U7f42oO.gif)
+![Tipsy Video Walkthrough](https://i.imgur.com/nIkNRgE.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 People icons made by [Freepik](www.freepik.com) from [www.flaticon.com](www.flaticon.com)
