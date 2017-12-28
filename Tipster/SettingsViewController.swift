@@ -36,7 +36,7 @@ class SettingsViewController: UIViewController {
         
         // Retrieve and set defaults
         defaultTipfield.text = String(defaults.integer(forKey: "defaultTipPercent")) + "%"
-        defaultTaxField.text = String(defaults.integer(forKey: "defaultTax")) + "%"
+        defaultTaxField.text = String(defaults.double(forKey: "defaultTax")) + "%"
         animateOn = defaults.bool(forKey: "animateOn")
         animationSwitch.isOn = animateOn
         
@@ -108,15 +108,16 @@ class SettingsViewController: UIViewController {
                 let key = "history" + String(index)
                 self.defaults.set(0.0, forKey: key)
             }
-            self.defaults.set(0.00, forKey: "storedBill")
-            self.defaults.set(0.00, forKey: "storedTipAmount")
-            self.defaults.set(0.00, forKey: "storedTotal")
+            self.defaults.set(0.0, forKey: "storedBill")
+            self.defaults.set(0.0, forKey: "storedTipAmount")
+            self.defaults.set(0.0, forKey: "storedTotal")
             self.defaults.set(0, forKey: "implicitTipRate")
             self.defaults.set(1, forKey: "historyPosition")
             self.defaults.set(0.0, forKey: "twoLabel")
             self.defaults.set(0.0, forKey: "threeLabel")
             self.defaults.set(0.0, forKey: "fourLabel")
             self.defaults.set(0.0, forKey: "fiveLabel")
+            self.defaults.synchronize()
         }))
         delete.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
         }))

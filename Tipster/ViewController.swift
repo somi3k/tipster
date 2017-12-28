@@ -119,7 +119,7 @@ class ViewController: UIViewController {
         animateOn = defaults.bool(forKey: "animateOn")
 
         // Force cursor to billAmount and begin editing
-        billAmount.becomeFirstResponder()
+        clearBillAmount(self)
         
         // Start labels out of view
         if (animateOn) {
@@ -164,6 +164,7 @@ class ViewController: UIViewController {
 
     // Force cursor upon editing billAmount and place currency symbol
     @IBAction func clearBillAmount(_ sender: Any) {
+        billAmount.text = ""
         billAmount.placeholder = NumberFormatter().currencySymbol
         billAmount.becomeFirstResponder()
     }
@@ -186,10 +187,10 @@ class ViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: Any) {
         let bounds = self.saveButton.bounds
         UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
-            self.saveButton.bounds = CGRect(x: bounds.origin.x - 5, y: bounds.origin.y - 5, width: bounds.size.width, height: bounds.size.height)
+            self.saveButton.bounds = CGRect(x: bounds.origin.x - 3, y: bounds.origin.y - 3, width: bounds.size.width, height: bounds.size.height)
         })
         UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
-            self.saveButton.bounds = CGRect(x: bounds.origin.x + 5, y: bounds.origin.y + 5, width: bounds.size.width, height: bounds.size.height)
+            self.saveButton.bounds = CGRect(x: bounds.origin.x + 3, y: bounds.origin.y + 3, width: bounds.size.width, height: bounds.size.height)
         })
     }
     
@@ -280,6 +281,7 @@ class ViewController: UIViewController {
             implicitTipRate = 0
         }
         defaults.set(implicitTipRate, forKey: "implicitTipRate")
+        defaults.synchronize()
         tipName.text = "Tip (" + String(implicitTipRate) + "%)"
         taxLabel.text = formatOutput(tax)
         tipField.text = formatOutput(tip)

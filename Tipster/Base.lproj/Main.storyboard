@@ -39,7 +39,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" fixedFrame="YES" selected="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UIP-qk-SaZ">
+                            <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UIP-qk-SaZ">
                                 <rect key="frame" x="16" y="96" width="343" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.9954398969984567" blue="0.97648126058829632" alpha="0.42179247362253519" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,7 +48,7 @@
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="55"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light"/>
                                 <connections>
-                                    <action selector="clearBillAmount:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="bBW-77-dmQ"/>
+                                    <action selector="clearBillAmount:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="UoR-Nz-LQK"/>
                                     <action selector="inputBill:" destination="BYZ-38-t0r" eventType="editingChanged" id="GEf-GZ-h5O"/>
                                 </connections>
                             </textField>
@@ -90,7 +90,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2U-eZ-XeM">
-                                        <rect key="frame" x="80" y="22" width="216" height="21"/>
+                                        <rect key="frame" x="64" y="15" width="232" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <nil key="textColor"/>
