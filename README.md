@@ -34,7 +34,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Tipsy Video Walkthrough](http://cubeupload.com/im/s90210/tipster7.gif)
+![Tipster Video Walkthrough](https://github.com/saketksingh/tipster/blob/master/tipster7.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 People icons made by [Freepik](www.freepik.com) from [www.flaticon.com](www.flaticon.com).
