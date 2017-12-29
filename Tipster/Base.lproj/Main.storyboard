@@ -33,7 +33,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-5j-z3Q">
-                                <rect key="frame" x="32" y="252" width="129" height="21"/>
+                                <rect key="frame" x="32" y="250" width="129" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -59,13 +59,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tax" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAp-Kr-fum">
-                                <rect key="frame" x="32" y="201" width="67" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" text="$0.00" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AI7-Vm-lNo">
                                 <rect key="frame" x="194" y="247" width="162" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -82,29 +75,20 @@
                                 <rect key="frame" x="16" y="301" width="343" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifr-Hd-8Ec">
-                                        <rect key="frame" x="8" y="22" width="64" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2U-eZ-XeM">
-                                        <rect key="frame" x="64" y="15" width="232" height="36"/>
+                                        <rect key="frame" x="68" y="14" width="267" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0a-hq-yak">
-                                        <rect key="frame" x="313" y="24" width="20" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifr-Hd-8Ec">
+                                        <rect key="frame" x="8" y="18" width="64" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Save" image="System Save"/>
-                                        <connections>
-                                            <action selector="saveButtonPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="k0J-ro-RMN"/>
-                                            <action selector="saveTotal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="98s-Gb-lxv"/>
-                                        </connections>
-                                    </button>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40462310975288662" green="0.74129343851085894" blue="0.66421687240483129" alpha="0.38444456335616439" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -236,6 +220,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.4471515469864612" green="0.82942328083938754" blue="0.67754200512787943" alpha="0.84931506849315064" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tax" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAp-Kr-fum">
+                                <rect key="frame" x="32" y="198" width="67" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.74951720237731934" green="0.99844390153884888" blue="0.86396551132202148" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -245,6 +236,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tipster" id="mYA-wz-9FT">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="save" id="gZ1-eK-rbv">
+                            <connections>
+                                <action selector="saveTotal:" destination="BYZ-38-t0r" id="ZQV-YN-Mtk"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="IQt-pn-WCS">
                             <connections>
                                 <segue destination="wGf-WA-dT9" kind="show" id="ZFC-sB-17A"/>
@@ -265,7 +261,6 @@
                         <outlet property="historyTen" destination="SBn-GX-dbd" id="DAe-ph-Vw0"/>
                         <outlet property="historyThree" destination="aJf-0B-2Vq" id="DPh-P8-Y9w"/>
                         <outlet property="historyTwo" destination="dij-ul-ifL" id="EZm-Ji-rGI"/>
-                        <outlet property="saveButton" destination="T0a-hq-yak" id="slR-Yt-Z91"/>
                         <outlet property="taxLabel" destination="7ck-BJ-Fup" id="bOO-4k-cWI"/>
                         <outlet property="taxName" destination="iAp-Kr-fum" id="STf-Ad-nnf"/>
                         <outlet property="threeLabel" destination="lrK-uo-pFB" id="Hqa-Cq-tud"/>
@@ -425,6 +420,5 @@
         <image name="3" width="80" height="80"/>
         <image name="4" width="91" height="91"/>
         <image name="5" width="536" height="536"/>
-        <image name="System Save" width="256" height="256"/>
     </resources>
 </document>

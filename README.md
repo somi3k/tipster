@@ -22,10 +22,10 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] List anything else that you can get done to improve the app functionality!
-* Added switch to turn animations on/off (default: on)
+* Added switch to turn animations on/off (default: On)
 * Added configurable sales tax field with (default: 8.25)
 * Added field for entering a nominal tip value, with the relative tip percentage displayed to the left
-* Added shared bill amount displaying total split evenly between 1 - 5 people
+* Added shared bill amount displaying total split evenly between 2 to 5 people
 * Added ability to save the previous 10 totals to a persistent history
 * Added delete history button to erase saved totals
 
@@ -37,7 +37,6 @@ Here's a walkthrough of implemented user stories:
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 People icons made by [Freepik](www.freepik.com) from [www.flaticon.com](www.flaticon.com)
-Save icon by [VisualPharm](www.visualpharm.com) from [www.veryicon.com](www.veryicon.com)
 TipAssist App icon by [Anastasia Kalashnyk](https://www.shareicon.net/author/anastasia-kalashnyk) from [www.shareicon.net](www.shareicon.net)
 
 ## Notes

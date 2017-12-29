@@ -33,7 +33,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var historyEight: UILabel!
     @IBOutlet weak var historyNine: UILabel!
     @IBOutlet weak var historyTen: UILabel!
-    @IBOutlet weak var saveButton: UIButton!
     
     // Global variable animateOn
     var animateOn: Bool = true
@@ -181,17 +180,6 @@ class ViewController: UIViewController {
         tipField.endEditing(true)
         view.endEditing(true)
         billAmount.text = formatOutput(defaults.double(forKey: "storedBill"))
-    }
-    
-    // Animate save button on press
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        let bounds = self.saveButton.bounds
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
-            self.saveButton.bounds = CGRect(x: bounds.origin.x - 3, y: bounds.origin.y - 3, width: bounds.size.width, height: bounds.size.height)
-        })
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
-            self.saveButton.bounds = CGRect(x: bounds.origin.x + 3, y: bounds.origin.y + 3, width: bounds.size.width, height: bounds.size.height)
-        })
     }
     
     // Save last 10 calculations to UserDefaults
