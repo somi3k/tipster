@@ -3,7 +3,7 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Mobil-20@2x-1.png",
+      "filename" : "money40.png",
       "scale" : "2x"
     },
     {
@@ -14,7 +14,7 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Mobil-29@2x.png",
+      "filename" : "money58.png",
       "scale" : "2x"
     },
     {
@@ -25,7 +25,7 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Mobil-40@2x.png",
+      "filename" : "money80.png",
       "scale" : "2x"
     },
     {
@@ -36,7 +36,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Mobil-60@2x.png",
+      "filename" : "money120.png",
       "scale" : "2x"
     },
     {
@@ -52,7 +52,7 @@
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "Mobil-20@2x.png",
+      "filename" : "money40-1.png",
       "scale" : "2x"
     },
     {
@@ -63,7 +63,7 @@
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "Mobil-29@2x-1.png",
+      "filename" : "money58-1.png",
       "scale" : "2x"
     },
     {
@@ -74,7 +74,7 @@
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Mobil-40@2x-1.png",
+      "filename" : "money80-1.png",
       "scale" : "2x"
     },
     {
@@ -85,19 +85,19 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Mobil-76@2x.png",
+      "filename" : "money152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "Mobil-83.5@2x.png",
+      "filename" : "money167.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "Mobil-1024.png",
+      "filename" : "money1024.png",
       "scale" : "1x"
     }
   ],

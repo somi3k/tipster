@@ -261,6 +261,9 @@
                         <outlet property="historyTen" destination="SBn-GX-dbd" id="DAe-ph-Vw0"/>
                         <outlet property="historyThree" destination="aJf-0B-2Vq" id="DPh-P8-Y9w"/>
                         <outlet property="historyTwo" destination="dij-ul-ifL" id="EZm-Ji-rGI"/>
+                        <outlet property="historyView" destination="X2O-jq-HHs" id="POi-c3-cBe"/>
+                        <outlet property="mainView" destination="8bC-Xf-vdC" id="ChE-ts-ssA"/>
+                        <outlet property="shareView" destination="2Ag-Kh-OYJ" id="s2g-7j-6aH"/>
                         <outlet property="taxLabel" destination="7ck-BJ-Fup" id="bOO-4k-cWI"/>
                         <outlet property="taxName" destination="iAp-Kr-fum" id="STf-Ad-nnf"/>
                         <outlet property="threeLabel" destination="lrK-uo-pFB" id="Hqa-Cq-tud"/>
@@ -356,6 +359,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.060598878350000003" green="0.41254452720000001" blue="0.037864686170000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="onTintColor" red="0.43038287758827209" green="0.79075115919113159" blue="0.70142954587936401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="toggleDarkTheme:" destination="wGf-WA-dT9" eventType="valueChanged" id="3of-UK-caI"/>
+                                    <action selector="updateColors:" destination="wGf-WA-dT9" eventType="editingDidEnd" id="fXP-58-aPb"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opQ-oD-D9c">
                                 <rect key="frame" x="116" y="409" width="142" height="30"/>
@@ -385,6 +392,7 @@
                         <outlet property="defaultTipLabel" destination="vtU-Dm-UpO" id="yna-RZ-mTz"/>
                         <outlet property="defaultTipfield" destination="cE3-2n-bKO" id="fVl-AF-Stb"/>
                         <outlet property="historyLabel" destination="opQ-oD-D9c" id="3iI-z4-E7t"/>
+                        <outlet property="mainView" destination="d8Z-f5-hM1" id="E9c-N7-xIX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecH-PE-LUY" userLabel="First Responder" sceneMemberID="firstResponder"/>

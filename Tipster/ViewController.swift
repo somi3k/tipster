@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var shareView: UIView!
+    @IBOutlet weak var historyView: UIView!
     @IBOutlet weak var totalName: UILabel!
     @IBOutlet weak var tipName: UILabel!
     @IBOutlet weak var taxName: UILabel!
@@ -36,6 +39,7 @@ class ViewController: UIViewController {
     
     // Global variable animateOn
     var animateOn: Bool = true
+    var darkTheme: Bool = false
     
     // Global variable for UserDefault
     let defaults = UserDefaults.standard
@@ -54,6 +58,7 @@ class ViewController: UIViewController {
         
         // Check that defaults are initialized, otherwise set
         let defaultAnimateObject = defaults.object(forKey: "animateOn")
+        let defaultDarkObject = defaults.object(forKey: "darkTheme")
         let defaultTipPctObject = defaults.object(forKey: "defaultTipPercent")
         let defaultTaxObject = defaults.object(forKey: "defaultTax")
         let defaultBillObject = defaults.object(forKey: "storedBill")
@@ -74,6 +79,9 @@ class ViewController: UIViewController {
         }
         if (defaultAnimateObject == nil) {
             defaults.set(true, forKey: "animateOn")
+        }
+        if (defaultDarkObject == nil) {
+            defaults.set(false, forKey: "darkTheme")
         }
         if (defaultTwoLabel == nil) {
             defaults.set(0.0, forKey: "twoLabel")
@@ -114,8 +122,10 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Restore defaults for tip, tax, animation, and bill
+        // Restore defaults for animation and darkTheme
         animateOn = defaults.bool(forKey: "animateOn")
+        darkTheme = defaults.bool(forKey: "darkTheme")
+        updateColors(self)
 
         // Force cursor to billAmount and begin editing
         clearBillAmount(self)
@@ -194,6 +204,28 @@ class ViewController: UIViewController {
         defaults.synchronize()
         updateHistory(self)
     }
+    
+    // Update elements with chosen color scheme
+    func updateColors(_ sender: Any) {
+        // Set colors if darkTheme enabled
+        if (darkTheme) {
+            mainView.backgroundColor = UIColor(red: 56.0/255.0, green: 89.0/255.0, blue: 75.0/255.0, alpha: 1.0)
+            shareView.backgroundColor = UIColor(red: 80.0/255.0, green: 130.0/255.0, blue: 120.0/255.0, alpha: 1.0)
+            historyView.backgroundColor = UIColor(red: 73.0/255.0, green: 128.0/255.0, blue: 112.0/255.0, alpha: 1.0)
+            tipControl.tintColor = UIColor.black
+            billAmount.keyboardAppearance = UIKeyboardAppearance.dark
+            tipField.keyboardAppearance = UIKeyboardAppearance.dark
+        }
+        else {
+            mainView.backgroundColor = UIColor(red: 190.0/255.0, green: 255.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+            shareView.backgroundColor = UIColor(red: 170.0/255.0, green: 239.0/255.0, blue: 210.0/255.0, alpha: 1.0)
+            historyView.backgroundColor = UIColor(red: 123.0/255.0, green: 218.0/255.0, blue: 182.0/255.0, alpha: 1.0)
+            tipControl.tintColor = UIColor(red: 107.0/255.0, green: 188.0/255.0, blue: 140.0/255.0, alpha: 1.0)
+            billAmount.keyboardAppearance = UIKeyboardAppearance.light
+            tipField.keyboardAppearance = UIKeyboardAppearance.light
+        }
+    }
+    
     
     // Update labels with current history from UserDefaults
     func updateHistory(_ sender: Any) {

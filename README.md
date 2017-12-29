@@ -28,6 +28,7 @@ The following **additional** features are implemented:
 * Added shared bill amount displaying total split evenly between 2 to 5 people
 * Added ability to save the previous 10 totals to a persistent history
 * Added delete history button to erase saved totals
+* Added dark color theme
 
 ## Video Walkthrough 
 
@@ -36,8 +37,8 @@ Here's a walkthrough of implemented user stories:
 ![Tipsy Video Walkthrough](https://i.imgur.com/nIkNRgE.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
-People icons made by [Freepik](www.freepik.com) from [www.flaticon.com](www.flaticon.com)
-TipAssist App icon by [Anastasia Kalashnyk](https://www.shareicon.net/author/anastasia-kalashnyk) from [www.shareicon.net](www.shareicon.net)
+People icons made by [Freepik](www.freepik.com) from [www.flaticon.com](www.flaticon.com).
+LaunchScreen and App logo by [paomedia](https://www.iconfinder.com/paomedia) from [www.iconfinder.com](www.iconfinder.com).
 
 ## Notes
 

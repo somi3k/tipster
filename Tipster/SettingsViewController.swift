@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var defaultTipLabel: UILabel!
     @IBOutlet weak var defaultTaxLabel: UILabel!
     @IBOutlet weak var animationsLabel: UILabel!
@@ -22,6 +23,7 @@ class SettingsViewController: UIViewController {
     
     // Global variable for animation
     var animateOn: Bool = true
+    var darkTheme: Bool = false
     
     // Global declaration for UserDefaults
     let defaults = UserDefaults.standard
@@ -39,6 +41,9 @@ class SettingsViewController: UIViewController {
         defaultTaxField.text = String(defaults.double(forKey: "defaultTax")) + "%"
         animateOn = defaults.bool(forKey: "animateOn")
         animationSwitch.isOn = animateOn
+        darkTheme = defaults.bool(forKey: "darkTheme")
+        darkThemeSwitch.isOn = darkTheme
+        updateColors(self)
         
         // Start labels out of view
         if (animateOn) {
@@ -74,10 +79,48 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    // Update elements with chosen color scheme
+    @IBAction func updateColors(_ sender: Any) {
+        if (darkTheme) {
+            mainView.backgroundColor = UIColor(red: 56.0/255.0, green: 89.0/255.0, blue: 75.0/255.0, alpha: 1.0)
+            defaultTipfield.keyboardAppearance = UIKeyboardAppearance.dark
+            defaultTipfield.backgroundColor = UIColor(red: 140.0/255.0, green: 158.0/255.0, blue: 148.0/255.0, alpha: 1.0)
+            defaultTaxField.backgroundColor = UIColor(red: 140.0/255.0, green: 158.0/255.0, blue: 148.0/255.0, alpha: 1.0)
+            defaultTaxField.keyboardAppearance = UIKeyboardAppearance.dark
+            animationSwitch.thumbTintColor = UIColor.black
+            animationSwitch.tintColor = UIColor.black
+            animationSwitch.onTintColor = UIColor(red: 27.0/255.0, green: 54.0/255.0, blue: 46.0/255.0, alpha: 1.0)
+            darkThemeSwitch.thumbTintColor = UIColor.black
+            darkThemeSwitch.tintColor = UIColor.black
+            darkThemeSwitch.onTintColor = UIColor(red: 27.0/255.0, green: 54.0/255.0, blue: 46.0/255.0, alpha: 1.0)
+        }
+        else {
+            mainView.backgroundColor = UIColor(red: 190.0/255.0, green: 255.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+            defaultTipfield.keyboardAppearance = UIKeyboardAppearance.light
+            defaultTipfield.backgroundColor = UIColor(red: 217.0/255.0, green: 254.0/255.0, blue: 233.0/255.0, alpha: 1.0)
+            defaultTaxField.backgroundColor = UIColor(red: 217.0/255.0, green: 254.0/255.0, blue: 233.0/255.0, alpha: 1.0)
+            defaultTaxField.keyboardAppearance = UIKeyboardAppearance.light
+            animationSwitch.thumbTintColor = UIColor.white
+            animationSwitch.tintColor = UIColor(red: 61.0/255.0, green: 146.0/255.0, blue: 77.0/255.0, alpha: 1.0)
+            animationSwitch.onTintColor = UIColor(red: 106.0/255.0, green: 200.0/255.0, blue: 178.0/255.0, alpha: 1.0)
+            darkThemeSwitch.thumbTintColor = UIColor.white
+            darkThemeSwitch.tintColor = UIColor(red: 61.0/255.0, green: 146.0/255.0, blue: 77.0/255.0, alpha: 1.0)
+            darkThemeSwitch.onTintColor = UIColor(red: 106.0/255.0, green: 200.0/255.0, blue: 178.0/255.0, alpha: 1.0)
+        }
+        //viewWillAppear(true)
+    }
+    
     // Update animation default setting
     @IBAction func toggleAnimations(_ sender: Any) {
         defaults.set(animationSwitch.isOn, forKey: "animateOn")
         defaults.synchronize()
+    }
+    
+    // Update dark theme default setting
+    @IBAction func toggleDarkTheme(_ sender: Any) {
+        defaults.set(darkThemeSwitch.isOn, forKey: "darkTheme")
+        defaults.synchronize()
+        updateColors(self)
     }
     
     // Force cursor upon editing defaultTipfield and place percent symbol
