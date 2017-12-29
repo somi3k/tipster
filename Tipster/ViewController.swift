@@ -219,8 +219,8 @@ class ViewController: UIViewController {
         else {
             mainView.backgroundColor = UIColor(red: 190.0/255.0, green: 255.0/255.0, blue: 222.0/255.0, alpha: 1.0)
             shareView.backgroundColor = UIColor(red: 170.0/255.0, green: 239.0/255.0, blue: 210.0/255.0, alpha: 1.0)
-            historyView.backgroundColor = UIColor(red: 123.0/255.0, green: 218.0/255.0, blue: 182.0/255.0, alpha: 1.0)
-            tipControl.tintColor = UIColor(red: 107.0/255.0, green: 188.0/255.0, blue: 140.0/255.0, alpha: 1.0)
+            historyView.backgroundColor = UIColor(red: 161.0/255.0, green: 239.0/255.0, blue: 205.0/255.0, alpha: 1.0)
+            tipControl.tintColor = UIColor(red: 13.0/255.0, green: 106.0/255.0, blue: 24.0/255.0, alpha: 1.0)
             billAmount.keyboardAppearance = UIKeyboardAppearance.light
             tipField.keyboardAppearance = UIKeyboardAppearance.light
         }
