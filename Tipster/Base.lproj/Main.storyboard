@@ -236,7 +236,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tipster" id="mYA-wz-9FT">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="save" id="gZ1-eK-rbv">
+                        <barButtonItem key="leftBarButtonItem" title="Save" id="gZ1-eK-rbv">
                             <connections>
                                 <action selector="saveTotal:" destination="BYZ-38-t0r" id="ZQV-YN-Mtk"/>
                             </connections>

@@ -192,7 +192,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = somi;
+				ORGANIZATIONNAME = "Somi Singh";
 				TargetAttributes = {
 					E70854E31FEEC0E80084A307 = {
 						CreatedOnToolsVersion = 9.2;
@@ -435,7 +435,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Tipster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sks.Tipster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sks.Tipster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -452,7 +452,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Tipster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sks.Tipster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sks.Tipster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
