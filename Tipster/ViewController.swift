@@ -142,6 +142,19 @@ class ViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+    // Round corners of views and text fields
+    billAmount.layer.cornerRadius = 10.0
+    billAmount.clipsToBounds = true
+    viewBar.layer.cornerRadius = 10.0
+    viewBar.clipsToBounds = true
+    tipField.layer.cornerRadius = 10.0
+    tipField.clipsToBounds = true
+    shareView.layer.cornerRadius = 10.0
+    shareView.clipsToBounds = true
+    historyView.layer.cornerRadius = 10.0
+    historyView.clipsToBounds = true
+    
+    
     // Restore defaults for animation and darkTheme
     animateOn = defaults.bool(forKey: "animateOn")
     darkTheme = defaults.bool(forKey: "darkTheme")

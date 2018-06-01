@@ -56,6 +56,12 @@ class SettingsViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+    // Round corners of text fields
+    defaultTaxField.layer.cornerRadius = 10.0
+    defaultTaxField.clipsToBounds = true
+    defaultTipfield.layer.cornerRadius = 10.0
+    defaultTipfield.clipsToBounds = true
+    
     // Retrieve and set defaults
     defaultTipfield.text = String(defaults.integer(forKey:
       "defaultTipPercent")) + "%"
